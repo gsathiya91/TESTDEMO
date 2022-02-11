@@ -21,7 +21,7 @@
 //     var data=JSON.parse(request.response);
 //     console.log(data);
 //     for(var i=0; i<data.length;i++){
-// //         console.log(`country:${data[i].name}
+//         console.log(`country:${data[i].name}
 //             capital:${data[i].capital} 
 //             latitude:${data[i].latlng[0]}
 //             longitude:${data[i].latlng[1]}
@@ -79,13 +79,53 @@
 
 // PRINT THE SUM OF TOTAL POPULATION OF ALL COUNTRIES;
 
+// var request=new XMLHttpRequest();
+// request.open("GET","https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json");
+// request.send();
+// request.onload=function(){
+//     var data=JSON.parse(request.response);
+//     console.log(data);
+//             var res=data.reduce((acc,cv)=>acc+cv.population,0); 
+          
+//             console.log(res);
+//     }
+
+// var request=new XMLHttpRequest();
+// request.open("GET","https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json");
+// request.send();
+// request.onload=function(){
+// var data=JSON.parse(request.response);
+// console.log(data);
+// for(var i=0; i<data.length;i++){
+// console.log(`country:${data[i].name}  
+//               Region:${data[i].region}
+//               Sub-Region:${data[i].subregion} 
+//               Population:${data[i].population}`);
+// }
+// }
+// var request=new XMLHttpRequest();
+// request.open("GET","https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json");
+// request.send();
+// request.onload=function(){
+// var data=JSON.parse(request.response);
+// console.log(data);
+// data.forEach(element=>{
+//     console.log(`${element.name}:
+//                  ${element.capital}:
+//                  ${element.flag}`)
+// });
+// }
+
+// Print the country which uses US Dollars as currency.
+
 var request=new XMLHttpRequest();
 request.open("GET","https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json");
 request.send();
 request.onload=function(){
     var data=JSON.parse(request.response);
     console.log(data);
-            var res=data.reduce((acc,cv)=>acc+cv.population,0); 
-          
-            console.log(res);
-    }
+            var name=data.filter((ele)=>ele.currencies[0].symbol==="$").map((ele)=>ele.name)
+        console.log(name)
+}
+
+
